@@ -1,0 +1,43 @@
+---
+title: "Usage Prediction"
+author: "Blaise Garant"
+date: "July 24, 2018"
+output: html_document
+---
+
+
+## Gathering the data
+
+Let's first gather the data. The dataset have been already separated in two sets that we'll call `testing` and `training`. 
+```{r data_setup}
+if (!file.exists('pml-training.csv')){
+  download.file("https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv", 'pml-training.csv')
+}
+if (!file.exists('pml-testing.csv')){
+  download.file("https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv", 'pml-testing.csv')
+}
+testing<-read.csv('pml-testing.csv')
+training<-read.csv('pml-training.csv')
+```
+
+According to the assignment and the documentation of the study, the variable to predict is the `classe` variable in which class A is a good practice and other classes are commun mistakes.
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
